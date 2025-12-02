@@ -1,4 +1,46 @@
 // ============================================
+// SALVAR NO GOOGLE SHEETS
+// ============================================
+function salvarNoSheets(nome, instagram, email, whatsapp, seguidores, consultas, valorConsulta, listaEspera, jaVendeu, perfil) {
+    const url = 'COLE_SUA_URL_DO_APPS_SCRIPT_AQUI'; // ← SUBSTITUA PELA URL REAL
+    
+    // Se não configurou a URL ainda, não faz nada
+    if (url === 'COLE_SUA_URL_DO_APPS_SCRIPT_AQUI') {
+        console.log('⚠️ Google Sheets ainda não configurado');
+        return;
+    }
+    
+    console.log('📤 Enviando dados para Google Sheets...');
+    
+    fetch(url, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            nome: nome,
+            instagram: instagram,
+            email: email,
+            whatsapp: whatsapp,
+            seguidores: seguidores,
+            consultas: consultas,
+            valorConsulta: valorConsulta,
+            listaEspera: listaEspera,
+            jaVendeu: jaVendeu,
+            perfil: perfil,
+            origem: window.location.hostname
+        })
+    })
+    .then(() => {
+        console.log('✅ Dados enviados com sucesso!');
+    })
+    .catch(err => {
+        console.error('❌ Erro ao enviar:', err);
+    });
+}
+
+// ============================================
 // FUNÇÃO PRINCIPAL: CALCULAR
 // ============================================
 function calcular() {
@@ -12,10 +54,7 @@ function calcular() {
     const valorConsulta = parseInt(document.getElementById('valor').value);
     const listaEspera = parseInt(document.getElementById('listaEspera').value);
     const jaVendeu = document.getElementById('jaVendeu').value === 'true';
-
-// ADICIONE:
-const perfil = determinarPerfil(seguidores, consultas, valorConsulta, listaEspera, jaVendeu);
-salvarNoSheets(nome, instagram, email, whatsapp, seguidores, consultas, valorConsulta, listaEspera, jaVendeu, perfil.perfil);    
+    
     // Validação
     if (!nome || !instagram || !email || !whatsapp || !seguidores || !consultas || !valorConsulta || isNaN(listaEspera) || document.getElementById('jaVendeu').value === '') {
         alert('Por favor, preencha todos os campos!');
@@ -46,6 +85,9 @@ salvarNoSheets(nome, instagram, email, whatsapp, seguidores, consultas, valorCon
         
         // Determina perfil
         const perfil = determinarPerfil(seguidores, faturamentoMensal, listaEspera, jaVendeu, valorConsulta);
+        
+        // SALVAR NO GOOGLE SHEETS
+        salvarNoSheets(nome, instagram, email, whatsapp, seguidores, consultas, valorConsulta, listaEspera, jaVendeu, perfil.perfil);
         
         // Formata números
         const faturamentoMensalF = faturamentoMensal.toLocaleString('pt-BR');
@@ -78,30 +120,7 @@ salvarNoSheets(nome, instagram, email, whatsapp, seguidores, consultas, valorCon
             listaEspera,
             jaVendeu
         );
-                // Salvar dados no Google Sheets
-function salvarNoSheets(nome, instagram, email, whatsapp, seguidores, consultas, valorConsulta, listaEspera, jaVendeu, perfil) {
-    const url = 'SUA_URL_DO_APPS_SCRIPT_AQUI'; // Cole a URL que copiou
-    
-    fetch(url, {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-            nome: nome,
-            instagram: instagram,
-            email: email,
-            whatsapp: whatsapp,
-            seguidores: seguidores,
-            consultas: consultas,
-            valorConsulta: valorConsulta,
-            listaEspera: listaEspera,
-            jaVendeu: jaVendeu,
-            perfil: perfil
-        })
-    });
-}
+        
         // Mostra resultado
         document.getElementById('resultado-conteudo').innerHTML = resultadoHTML;
         document.getElementById('resultado').style.display = 'block';
