@@ -282,7 +282,7 @@ function montarResultado(nome, perfil, seguidores, seguidoresF, consultas, fatur
     
     // CTA final
     html += `
-        <a href="https://wa.me/5535997140204?text=Oi%20Plínio,%20acabei%20de%20fazer%20a%20calculadora%20e%20descobri%20meu%20perfil:%20${encodeURIComponent(perfil.perfil)}%20-%20Quero%20parar%20de%20perder%20R$%20${perdendoMensalF}%20por%20mês!" class="btn-cta" target="_blank" style="background: ${perfil.cor};">
+        <a href="https://wa.me/5535997140204?text=Oi%20Plínio,%20acabei%20de%20fazer%20a%20calculadora%20e%20descobri%20meu%20perfil:%20${encodeURIComponent(perfil.perfil)}%20-%20Quero%20parar%20de%20perder%20R$%20${perdendoMensalF}%20por%20mês!" class="btn-cta" target="_blank">
             ${perfil.cta}
         </a>
     `;
@@ -436,6 +436,13 @@ function gerarSolucao(perfil, seguidores, faturamentoMensal) {
             <p><strong>AGORA:</strong> 1 hora = 1 consulta = R$ ${Math.round(faturamentoMensal / consultas)}</p>
             <p><strong>COM PRODUTO:</strong> 1 hora gravando = 1.000 mães atendidas = R$ 697.000</p>
         `;
+    } else if (perfil.perfil === "A EMPERRADA DE SUCESSO") {
+        html += `
+            <p>Você não precisa trabalhar mais.</p>
+            <p><strong>Você precisa MULTIPLICAR.</strong></p>
+            <p><strong>AGORA:</strong> 1 hora = 1 consulta = R$ ${Math.round(faturamentoMensal / consultas)}</p>
+            <p><strong>COM PRODUTO:</strong> 1 hora gravando = 1.000 mães atendidas = R$ 697.000</p>
+        `;
     } else if (perfil.perfil === "A PROMESSA ADORMECIDA") {
         html += `
             <p>Você precisa MULTIPLICAR seu impacto:</p>
@@ -575,6 +582,47 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Remove erro ao começar a digitar novamente
     whatsappInput.addEventListener('focus', function(e) {
+        const errorMsg = e.target.parentElement.querySelector('.input-error');
+        if (errorMsg) errorMsg.remove();
+        e.target.style.borderColor = '#E63946';
+    });
+});
+
+// ============================================
+// VALIDAÇÃO DE EMAIL - IMPEDIR GMAIL.COM.BR
+// ============================================
+document.addEventListener('DOMContentLoaded', function() {
+    const emailInput = document.getElementById('email');
+    
+    emailInput.addEventListener('blur', function(e) {
+        const value = e.target.value.toLowerCase();
+        
+        // Remove mensagem de erro anterior
+        const errorMsg = e.target.parentElement.querySelector('.input-error');
+        if (errorMsg) errorMsg.remove();
+        
+        // Verifica se é gmail.com.br (erro comum)
+        if (value.includes('gmail.com.br')) {
+            const error = document.createElement('small');
+            error.className = 'input-error';
+            error.textContent = 'Gmail não tem .br - Use @gmail.com';
+            e.target.parentNode.appendChild(error);
+            e.target.style.borderColor = '#FF6B6B';
+            
+            // Corrige automaticamente
+            e.target.value = value.replace('gmail.com.br', 'gmail.com');
+        } else if (value && !value.includes('@')) {
+            const error = document.createElement('small');
+            error.className = 'input-error';
+            error.textContent = 'E-mail inválido. Use: exemplo@email.com';
+            e.target.parentNode.appendChild(error);
+            e.target.style.borderColor = '#FF6B6B';
+        } else if (value.includes('@')) {
+            e.target.style.borderColor = '#06FFA5';
+        }
+    });
+    
+    emailInput.addEventListener('focus', function(e) {
         const errorMsg = e.target.parentElement.querySelector('.input-error');
         if (errorMsg) errorMsg.remove();
         e.target.style.borderColor = '#E63946';
