@@ -148,7 +148,7 @@ function determinarPerfil(seguidores, faturamentoMensal, temListaEspera, jaVende
             perfil: "A EMPERRADA DE SUCESSO",
             emoji: "🚀",
             cor: "#9D4EDD",
-            prioridade: "ALTA",
+            prioridade: "URGENTE - Você está no teto",
             cta: "QUERO ESCALAR PRO PRÓXIMO NÍVEL",
             badge: "badge-roxo.webp"
         };
@@ -160,7 +160,7 @@ function determinarPerfil(seguidores, faturamentoMensal, temListaEspera, jaVende
             perfil: "A INVISÍVEL MILIONÁRIA",
             emoji: "🔥",
             cor: "#E63946",
-            prioridade: "ALTA",
+            prioridade: "ALTO POTENCIAL - Você já tem tudo",
             cta: "QUERO PARAR DE PERDER ISSO AGORA",
             badge: "badge-vermelho.webp"
         };
@@ -172,7 +172,7 @@ function determinarPerfil(seguidores, faturamentoMensal, temListaEspera, jaVende
             perfil: "A QUEIMADA RESILIENTE",
             emoji: "💪",
             cor: "#FF6B6B",
-            prioridade: "MÉDIA",
+            prioridade: "SEGUNDA CHANCE - Agora com método certo",
             cta: "QUERO FAZER CERTO DESSA VEZ",
             badge: "badge-laranja.webp"
         };
@@ -184,7 +184,7 @@ function determinarPerfil(seguidores, faturamentoMensal, temListaEspera, jaVende
             perfil: "A PROMESSA ADORMECIDA",
             emoji: "🌱",
             cor: "#06FFA5",
-            prioridade: "MÉDIA",
+            prioridade: "MOMENTO IDEAL - Hora de multiplicar",
             cta: "QUERO MULTIPLICAR MEU IMPACTO",
             badge: "badge-verde.webp"
         };
@@ -195,7 +195,7 @@ function determinarPerfil(seguidores, faturamentoMensal, temListaEspera, jaVende
         perfil: "A INICIANTE CORAJOSA",
         emoji: "💚",
         cor: "#4CAF50",
-        prioridade: "BAIXA",
+        prioridade: "FUNDAÇÃO SÓLIDA - Comece certo desde o início",
         cta: "QUERO COMEÇAR DO JEITO CERTO",
         badge: "badge-verde-claro.webp"
     };
@@ -211,10 +211,13 @@ function montarResultado(nome, perfil, seguidores, seguidoresF, consultas, fatur
     // Header do perfil
     html += `
         <div class="perfil-header" style="border-left: 4px solid ${perfil.cor};">
+            <div class="perfil-imagem-container">
+                <img src="perfil-${perfil.perfil.toLowerCase().replace(/\s+/g, '-').replace('a-', '')}.webp" alt="${perfil.perfil}" class="perfil-imagem" onerror="this.style.display='none'">
+            </div>
             <h2 style="color: ${perfil.cor};">
                 ${perfil.emoji} SEU PERFIL: ${perfil.perfil}
             </h2>
-            <p class="perfil-prioridade">Prioridade: <strong>${perfil.prioridade}</strong></p>
+            <p class="perfil-prioridade">Prioridade de atendimento: <strong>${perfil.prioridade}</strong></p>
         </div>
     `;
     
@@ -522,3 +525,58 @@ function gerarProximoPassoPersonalizado(perfil, faturamentoMensal) {
     
     return html;
 }
+
+// ============================================
+// MÁSCARA AUTOMÁTICA PARA WHATSAPP
+// ============================================
+document.addEventListener('DOMContentLoaded', function() {
+    const whatsappInput = document.getElementById('whatsapp');
+    
+    whatsappInput.addEventListener('input', function(e) {
+        let value = e.target.value.replace(/\D/g, ''); // Remove tudo que não é número
+        
+        // Limita a 11 dígitos (DDD + 9 dígitos)
+        if (value.length > 11) {
+            value = value.slice(0, 11);
+        }
+        
+        // Aplica máscara conforme digita
+        if (value.length === 0) {
+            e.target.value = '';
+        } else if (value.length <= 2) {
+            e.target.value = `(${value}`;
+        } else if (value.length <= 7) {
+            e.target.value = `(${value.slice(0, 2)}) ${value.slice(2)}`;
+        } else {
+            e.target.value = `(${value.slice(0, 2)}) ${value.slice(2, 7)}-${value.slice(7)}`;
+        }
+    });
+    
+    // Validação ao sair do campo
+    whatsappInput.addEventListener('blur', function(e) {
+        const value = e.target.value.replace(/\D/g, '');
+        const hint = e.target.nextElementSibling;
+        
+        // Remove mensagem de erro anterior
+        const errorMsg = e.target.parentElement.querySelector('.input-error');
+        if (errorMsg) errorMsg.remove();
+        
+        if (value.length > 0 && value.length < 11) {
+            // Adiciona mensagem de erro
+            const error = document.createElement('small');
+            error.className = 'input-error';
+            error.textContent = `Faltam ${11 - value.length} dígito(s). Complete o número.`;
+            hint.parentNode.insertBefore(error, hint.nextSibling);
+            e.target.style.borderColor = '#FF6B6B';
+        } else if (value.length === 11) {
+            e.target.style.borderColor = '#06FFA5';
+        }
+    });
+    
+    // Remove erro ao começar a digitar novamente
+    whatsappInput.addEventListener('focus', function(e) {
+        const errorMsg = e.target.parentElement.querySelector('.input-error');
+        if (errorMsg) errorMsg.remove();
+        e.target.style.borderColor = '#E63946';
+    });
+});
