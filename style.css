@@ -158,8 +158,8 @@ body {
 }
 
 .input-with-prefix:focus-within {
-    border-color: #E63946;
-    box-shadow: 0 0 0 3px rgba(230, 57, 70, 0.1);
+    border-color: #C0C0C0;
+    box-shadow: 0 0 0 3px rgba(192, 192, 192, 0.15);
 }
 
 .input-prefix {
@@ -185,8 +185,8 @@ body {
 .form-group input:focus,
 .form-group select:focus {
     outline: none;
-    border-color: #E63946;
-    box-shadow: 0 0 0 3px rgba(230, 57, 70, 0.1);
+    border-color: #C0C0C0;
+    box-shadow: 0 0 0 3px rgba(192, 192, 192, 0.15);
 }
 
 .form-group select {
@@ -295,19 +295,19 @@ body {
 
 .resultado-card {
     background: rgba(26, 26, 26, 0.95);
-    border: 2px solid #E63946;
+    border: 2px solid #C0C0C0;
     border-radius: 20px;
     padding: 0;
-    box-shadow: 0 8px 32px rgba(230, 57, 70, 0.3);
+    box-shadow: 0 8px 32px rgba(192, 192, 192, 0.2);
     backdrop-filter: blur(10px);
     overflow: hidden;
 }
 
 /* Header do perfil - MELHORADO */
 .perfil-header {
-    background: linear-gradient(135deg, rgba(230, 57, 70, 0.15) 0%, rgba(230, 57, 70, 0.05) 100%);
+    background: linear-gradient(135deg, rgba(192, 192, 192, 0.1) 0%, rgba(192, 192, 192, 0.05) 100%);
     padding: 40px;
-    border-bottom: 2px solid rgba(230, 57, 70, 0.3);
+    border-bottom: 2px solid rgba(192, 192, 192, 0.3);
     text-align: center;
 }
 
@@ -319,7 +319,7 @@ body {
     max-width: 200px;
     height: auto;
     border-radius: 50%;
-    border: 4px solid rgba(230, 57, 70, 0.3);
+    border: 4px solid rgba(192, 192, 192, 0.3);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s ease;
 }
@@ -334,18 +334,19 @@ body {
     margin-bottom: 12px;
     text-transform: uppercase;
     letter-spacing: -0.5px;
+    color: #C0C0C0;
 }
 
 .perfil-prioridade {
     font-size: 18px;
-    color: #ffffff;
+    color: #C0C0C0;
     margin: 0;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 1px;
     display: inline-block;
     padding: 8px 20px;
-    background: rgba(230, 57, 70, 0.2);
+    background: rgba(192, 192, 192, 0.1);
     border-radius: 20px;
 }
 
@@ -372,7 +373,7 @@ body {
 .solucao,
 .proximo-passo {
     background: rgba(30, 30, 30, 0.6);
-    border-left: 4px solid #E63946;
+    border-left: 4px solid #C0C0C0;
     border-radius: 12px;
     padding: 32px;
     margin-bottom: 32px;
@@ -386,7 +387,7 @@ body {
 .solucao:hover,
 .proximo-passo:hover {
     transform: translateX(4px);
-    box-shadow: -4px 0 12px rgba(230, 57, 70, 0.2);
+    box-shadow: -4px 0 12px rgba(192, 192, 192, 0.2);
 }
 
 .numeros-perfil h3,
@@ -397,7 +398,7 @@ body {
 .proximo-passo h3 {
     font-size: 24px;
     font-weight: 900;
-    color: #ffffff;
+    color: #C0C0C0;
     margin-bottom: 20px;
     display: flex;
     align-items: center;
@@ -437,51 +438,51 @@ body {
 
 /* Destaques financeiros - MUITO MAIS IMPACTANTES */
 .destaque {
-    background: linear-gradient(135deg, rgba(230, 57, 70, 0.2) 0%, rgba(230, 57, 70, 0.1) 100%);
-    border: 2px solid #E63946;
+    background: linear-gradient(135deg, rgba(192, 192, 192, 0.2) 0%, rgba(192, 192, 192, 0.1) 100%);
+    border: 2px solid #C0C0C0;
     border-radius: 16px;
     padding: 32px;
     margin: 32px 0;
     text-align: center;
-    box-shadow: 0 4px 20px rgba(230, 57, 70, 0.3);
+    box-shadow: 0 4px 20px rgba(192, 192, 192, 0.3);
 }
 
 .destaque p {
     font-size: 28px !important;
     font-weight: 900;
-    color: #ffffff !important;
+    color: #C0C0C0 !important;
     margin: 0 !important;
     text-transform: uppercase;
     letter-spacing: 0.5px;
 }
 
 .alerta {
-    background: linear-gradient(135deg, rgba(255, 107, 107, 0.2) 0%, rgba(255, 107, 107, 0.1) 100%);
-    border: 2px solid #FF6B6B;
+    background: linear-gradient(135deg, rgba(192, 192, 192, 0.2) 0%, rgba(192, 192, 192, 0.1) 100%);
+    border: 2px solid #C0C0C0;
     border-radius: 16px;
     padding: 32px;
     margin: 32px 0;
     text-align: center;
-    box-shadow: 0 4px 20px rgba(255, 107, 107, 0.3);
+    box-shadow: 0 4px 20px rgba(192, 192, 192, 0.3);
 }
 
 .alerta p {
     font-size: 26px !important;
     font-weight: 900;
-    color: #FF6B6B !important;
+    color: #C0C0C0 !important;
     margin: 0 !important;
     text-transform: uppercase;
     letter-spacing: 0.5px;
 }
 
 .alerta-mensal {
-    background: linear-gradient(135deg, rgba(255, 107, 107, 0.3) 0%, rgba(255, 107, 107, 0.15) 100%);
-    border: 3px solid #FF6B6B;
+    background: linear-gradient(135deg, rgba(192, 192, 192, 0.3) 0%, rgba(192, 192, 192, 0.15) 100%);
+    border: 3px solid #C0C0C0;
     border-radius: 16px;
     padding: 40px;
     margin: 32px 0;
     text-align: center;
-    box-shadow: 0 6px 24px rgba(255, 107, 107, 0.4);
+    box-shadow: 0 6px 24px rgba(192, 192, 192, 0.4);
     position: relative;
     overflow: hidden;
 }
@@ -499,7 +500,7 @@ body {
 .alerta-mensal p {
     font-size: 32px !important;
     font-weight: 900;
-    color: #ffffff !important;
+    color: #C0C0C0 !important;
     margin: 0 !important;
     text-transform: uppercase;
     letter-spacing: 0.5px;
