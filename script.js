@@ -2,7 +2,7 @@
 // SALVAR NO GOOGLE SHEETS
 // ============================================
 function salvarNoSheets(nome, instagram, email, whatsapp, seguidores, consultas, valorConsulta, listaEspera, jaVendeu, perfil) {
-    const url = 'COLE_SUA_URL_DO_APPS_SCRIPT_AQUI'; // ← SUBSTITUA PELA URL REAL
+    const url = 'https://docs.google.com/spreadsheets/d/1qCzk5W3YG0utRU1HO6RNITB25jk-ZjItqKAmXkggL2I/edit?usp=sharing'; // ← SUBSTITUA PELA URL REAL
     
     // Se não configurou a URL ainda, não faz nada
     if (url === 'COLE_SUA_URL_DO_APPS_SCRIPT_AQUI') {
