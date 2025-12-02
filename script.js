@@ -28,6 +28,78 @@ function calcular() {
     const perdendoAnualF = perdendoAnual.toLocaleString('pt-BR');
     const perdendoMensalF = perdendoMensal.toLocaleString('pt-BR');
     const seguidoresF = seguidores.toLocaleString('pt-BR');
+
+    // Determina ranking
+let ranking = '';
+let cor = '';
+
+if (perdendoAnual >= 50000) {
+    ranking = '🔴 ALERTA VERMELHO';
+    cor = 'red';
+} else if (perdendoAnual >= 30000) {
+    ranking = '🟠 ALERTA LARANJA';
+    cor = 'orange';
+} else if (perdendoAnual >= 10000) {
+    ranking = '🟡 ALERTA AMARELO';
+    cor = 'yellow';
+} else {
+    ranking = '🟢 TUDO BEM';
+    cor = 'green';
+}
+
+// Adiciona no HTML do resultado
+const rankingHTML = `
+    <div style="background: rgba(230,57,70,0.1); border-left: 4px solid ${cor}; padding: 20px; margin: 24px 0; border-radius: 8px;">
+        <h3 style="color: ${cor}; font-size: 24px; margin-bottom: 8px;">
+            ${ranking}
+        </h3>
+        <p>Você está perdendo <strong>R$ ${perdendoAnualF}/ano</strong></p>
+    </div>
+`;
+```
+
+---
+
+### **NÍVEL 2: Barra de progresso animada (médio — adiciona essa semana)**
+
+**Como funciona:**
+
+Resultado mostra **barra de progresso** tipo "carregando":
+```
+⚡ ANALISANDO SEUS DADOS...
+
+[████████████░░░░░░░░] 60%
+
+Calculando quanto você está perdendo...
+```
+
+**Depois de 3 segundos:**
+```
+✅ ANÁLISE COMPLETA!
+
+📊 Resultado: Você está perdendo R$ 52.000/ano
+```
+
+**Por que isso funciona:**
+✅ **Antecipação** (pessoa fica curiosa esperando)  
+✅ **Parece mais "profissional"** (não é instantâneo)  
+✅ **Dopamina** (revelação gradual = mais impacto)  
+
+---
+
+### **NÍVEL 3: Compartilhamento social + Badge (avançado — adiciona mês 2)**
+
+**Como funciona:**
+
+Depois do resultado:
+```
+🏆 VOCÊ DESBLOQUEOU O BADGE:
+
+[IMAGEM: Badge "Alerta Vermelho - R$ 52k perdidos"]
+
+📲 Compartilhe seu resultado nos stories e marque @plinioventavoli
+
+[BOTÃO: COMPARTILHAR NO INSTAGRAM]
     
     // Monta resultado
     const resultado = `
