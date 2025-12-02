@@ -479,6 +479,41 @@ body {
     transform: translateY(-2px);
 }
 
+/* Botão VERDE para perfis específicos */
+.btn-cta[style*="#06FFA5"],
+.btn-cta[style*="#4CAF50"] {
+    background: linear-gradient(135deg, #06FFA5 0%, #00D68F 100%) !important;
+    box-shadow: 0 8px 24px rgba(6, 255, 165, 0.4) !important;
+}
+
+.btn-cta[style*="#06FFA5"]:hover,
+.btn-cta[style*="#4CAF50"]:hover {
+    background: linear-gradient(135deg, #00D68F 0%, #00B87A 100%) !important;
+    box-shadow: 0 12px 32px rgba(6, 255, 165, 0.6) !important;
+}
+
+/* Botão ROXO para perfil específico */
+.btn-cta[style*="#9D4EDD"] {
+    background: linear-gradient(135deg, #9D4EDD 0%, #8338EC 100%) !important;
+    box-shadow: 0 8px 24px rgba(157, 78, 221, 0.4) !important;
+}
+
+.btn-cta[style*="#9D4EDD"]:hover {
+    background: linear-gradient(135deg, #8338EC 0%, #7209B7 100%) !important;
+    box-shadow: 0 12px 32px rgba(157, 78, 221, 0.6) !important;
+}
+
+/* Botão LARANJA para perfil específico */
+.btn-cta[style*="#FF6B6B"] {
+    background: linear-gradient(135deg, #FF6B6B 0%, #FF5252 100%) !important;
+    box-shadow: 0 8px 24px rgba(255, 107, 107, 0.4) !important;
+}
+
+.btn-cta[style*="#FF6B6B"]:hover {
+    background: linear-gradient(135deg, #FF5252 0%, #FF3838 100%) !important;
+    box-shadow: 0 12px 32px rgba(255, 107, 107, 0.6) !important;
+}
+
 /* ============================================
    RODAPÉ
    ============================================ */
