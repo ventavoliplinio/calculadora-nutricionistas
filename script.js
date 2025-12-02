@@ -210,11 +210,11 @@ function montarResultado(nome, perfil, seguidores, seguidoresF, consultas, fatur
     
     // Header do perfil
     html += `
-        <div class="perfil-header" style="border-left: 4px solid ${perfil.cor};">
+        <div class="perfil-header">
             <div class="perfil-imagem-container">
                 <img src="perfil-${perfil.perfil.toLowerCase().replace(/\s+/g, '-').replace('a-', '')}.webp" alt="${perfil.perfil}" class="perfil-imagem" onerror="this.style.display='none'">
             </div>
-            <h2 style="color: ${perfil.cor};">
+            <h2>
                 ${perfil.emoji} SEU PERFIL: ${perfil.perfil}
             </h2>
             <p class="perfil-prioridade">Prioridade de atendimento: <strong>${perfil.prioridade}</strong></p>
@@ -584,7 +584,7 @@ document.addEventListener('DOMContentLoaded', function() {
     whatsappInput.addEventListener('focus', function(e) {
         const errorMsg = e.target.parentElement.querySelector('.input-error');
         if (errorMsg) errorMsg.remove();
-        e.target.style.borderColor = '#E63946';
+        e.target.style.borderColor = '#C0C0C0';
     });
 });
 
@@ -625,6 +625,6 @@ document.addEventListener('DOMContentLoaded', function() {
     emailInput.addEventListener('focus', function(e) {
         const errorMsg = e.target.parentElement.querySelector('.input-error');
         if (errorMsg) errorMsg.remove();
-        e.target.style.borderColor = '#E63946';
+        e.target.style.borderColor = '#C0C0C0';
     });
 });
