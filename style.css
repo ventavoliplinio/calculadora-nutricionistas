@@ -61,23 +61,25 @@ body {
     text-align: center;
 }
 
-/* Logo em imagem */
-.logo-container {
+/* Logo em texto */
+.logo-text {
+    font-size: 32px;
+    font-weight: 900;
+    color: #E63946;
     margin-bottom: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    letter-spacing: -1px;
+    text-transform: uppercase;
+    text-align: center;
+    background: linear-gradient(135deg, #E63946 0%, #FF6B6B 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 2px 8px rgba(230, 57, 70, 0.3));
 }
 
-.logo-image {
-    max-width: 280px;
-    height: auto;
-    filter: drop-shadow(0 4px 12px rgba(230, 57, 70, 0.3));
+.logo-text:hover {
+    transform: scale(1.02);
     transition: transform 0.3s ease;
-}
-
-.logo-image:hover {
-    transform: scale(1.05);
 }
 
 .hero h1 {
@@ -233,7 +235,7 @@ body {
 }
 
 /* ============================================
-   RESULTADO
+   RESULTADO - VISUAL MELHORADO
    ============================================ */
 .resultado {
     padding: 40px 0 80px;
@@ -254,48 +256,80 @@ body {
 .resultado-card {
     background: rgba(26, 26, 26, 0.95);
     border: 2px solid #E63946;
-    border-radius: 16px;
-    padding: 48px;
-    box-shadow: 0 8px 32px rgba(230, 57, 70, 0.2);
+    border-radius: 20px;
+    padding: 0;
+    box-shadow: 0 8px 32px rgba(230, 57, 70, 0.3);
     backdrop-filter: blur(10px);
+    overflow: hidden;
 }
 
-/* Header do perfil */
+/* Header do perfil - MELHORADO */
 .perfil-header {
-    background: rgba(230, 57, 70, 0.05);
-    padding: 24px;
-    border-radius: 12px;
-    margin-bottom: 32px;
+    background: linear-gradient(135deg, rgba(230, 57, 70, 0.15) 0%, rgba(230, 57, 70, 0.05) 100%);
+    padding: 40px;
+    border-bottom: 2px solid rgba(230, 57, 70, 0.3);
+    text-align: center;
 }
 
 .perfil-header h2 {
-    font-size: 28px;
+    font-size: 36px;
     font-weight: 900;
-    margin-bottom: 8px;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: -0.5px;
 }
 
 .perfil-prioridade {
-    font-size: 16px;
-    color: #b0b0b0;
+    font-size: 18px;
+    color: #ffffff;
     margin: 0;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: inline-block;
+    padding: 8px 20px;
+    background: rgba(230, 57, 70, 0.2);
+    border-radius: 20px;
 }
 
-/* Saudação */
+/* Container principal do conteúdo */
+#resultado-conteudo {
+    padding: 40px;
+}
+
+/* Saudação - MELHORADA */
 .saudacao {
-    font-size: 20px;
+    font-size: 22px;
     line-height: 1.6;
-    margin-bottom: 32px;
-    color: #d0d0d0;
+    margin-bottom: 40px;
+    color: #ffffff;
+    text-align: center;
+    font-weight: 600;
 }
 
-/* Seções */
+/* Seções como cards coloridos */
 .numeros-perfil,
 .diagnostico,
 .financeiro,
 .explicacao,
 .solucao,
 .proximo-passo {
+    background: rgba(30, 30, 30, 0.6);
+    border-left: 4px solid #E63946;
+    border-radius: 12px;
+    padding: 32px;
     margin-bottom: 32px;
+    transition: all 0.3s ease;
+}
+
+.numeros-perfil:hover,
+.diagnostico:hover,
+.financeiro:hover,
+.explicacao:hover,
+.solucao:hover,
+.proximo-passo:hover {
+    transform: translateX(4px);
+    box-shadow: -4px 0 12px rgba(230, 57, 70, 0.2);
 }
 
 .numeros-perfil h3,
@@ -304,10 +338,13 @@ body {
 .explicacao h3,
 .solucao h3,
 .proximo-passo h3 {
-    font-size: 22px;
-    font-weight: 700;
+    font-size: 24px;
+    font-weight: 900;
     color: #ffffff;
-    margin-bottom: 16px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
 }
 
 .numeros-perfil ul,
@@ -324,8 +361,9 @@ body {
 .diagnostico li,
 .solucao li,
 .proximo-passo li {
-    margin-bottom: 8px;
-    line-height: 1.6;
+    margin-bottom: 12px;
+    line-height: 1.8;
+    font-size: 17px;
 }
 
 .resultado-card p {
@@ -340,61 +378,107 @@ body {
     font-weight: 700;
 }
 
-/* Destaques financeiros */
+/* Destaques financeiros - MUITO MAIS IMPACTANTES */
 .destaque {
-    background: rgba(230, 57, 70, 0.1);
-    border-left: 4px solid #E63946;
-    padding: 20px 24px;
-    margin: 24px 0;
-    border-radius: 8px;
-    font-size: 22px !important;
-    font-weight: 700;
+    background: linear-gradient(135deg, rgba(230, 57, 70, 0.2) 0%, rgba(230, 57, 70, 0.1) 100%);
+    border: 2px solid #E63946;
+    border-radius: 16px;
+    padding: 32px;
+    margin: 32px 0;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(230, 57, 70, 0.3);
+}
+
+.destaque p {
+    font-size: 28px !important;
+    font-weight: 900;
+    color: #ffffff !important;
+    margin: 0 !important;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .alerta {
-    background: rgba(255, 107, 107, 0.1);
-    border-left: 4px solid #FF6B6B;
-    padding: 20px 24px;
-    margin: 24px 0;
-    border-radius: 8px;
-    font-size: 22px !important;
-    font-weight: 700;
+    background: linear-gradient(135deg, rgba(255, 107, 107, 0.2) 0%, rgba(255, 107, 107, 0.1) 100%);
+    border: 2px solid #FF6B6B;
+    border-radius: 16px;
+    padding: 32px;
+    margin: 32px 0;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(255, 107, 107, 0.3);
+}
+
+.alerta p {
+    font-size: 26px !important;
+    font-weight: 900;
+    color: #FF6B6B !important;
+    margin: 0 !important;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .alerta-mensal {
-    background: rgba(255, 107, 107, 0.15);
-    border-left: 4px solid #FF6B6B;
-    padding: 20px 24px;
-    margin: 24px 0;
-    border-radius: 8px;
-    font-size: 24px !important;
-    font-weight: 700;
-    color: #FF6B6B;
+    background: linear-gradient(135deg, rgba(255, 107, 107, 0.3) 0%, rgba(255, 107, 107, 0.15) 100%);
+    border: 3px solid #FF6B6B;
+    border-radius: 16px;
+    padding: 40px;
+    margin: 32px 0;
+    text-align: center;
+    box-shadow: 0 6px 24px rgba(255, 107, 107, 0.4);
+    position: relative;
+    overflow: hidden;
 }
 
-/* CTA Button */
-.btn-cta {
-    display: inline-block;
-    padding: 20px 48px;
-    font-size: 20px;
-    font-weight: 700;
-    background: #E63946;
-    color: #ffffff;
-    text-decoration: none;
-    border-radius: 8px;
-    margin-top: 32px;
-    transition: all 0.3s ease;
+.alerta-mensal::before {
+    content: '⚠️';
+    position: absolute;
+    top: 50%;
+    left: -20px;
+    transform: translateY(-50%);
+    font-size: 100px;
+    opacity: 0.1;
+}
+
+.alerta-mensal p {
+    font-size: 32px !important;
+    font-weight: 900;
+    color: #ffffff !important;
+    margin: 0 !important;
     text-transform: uppercase;
     letter-spacing: 0.5px;
+    position: relative;
+    z-index: 1;
+}
+
+/* CTA Button - MUITO MAIS CHAMATIVO */
+.btn-cta {
+    display: block;
+    padding: 24px 48px;
+    font-size: 22px;
+    font-weight: 900;
+    background: linear-gradient(135deg, #E63946 0%, #d62828 100%);
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 12px;
+    margin: 48px auto 0;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
     text-align: center;
     width: 100%;
-    max-width: 500px;
+    max-width: 600px;
+    box-shadow: 0 8px 24px rgba(230, 57, 70, 0.4);
+    border: 2px solid rgba(255, 255, 255, 0.1);
 }
 
 .btn-cta:hover {
-    background: #d62828;
+    background: linear-gradient(135deg, #d62828 0%, #c1121f 100%);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(230, 57, 70, 0.6);
+}
+
+.btn-cta:active {
     transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(230, 57, 70, 0.4);
 }
 
 /* ============================================
@@ -425,8 +509,8 @@ footer a:hover {
         padding: 40px 0 30px;
     }
     
-    .logo-image {
-        max-width: 200px;
+    .logo-text {
+        font-size: 24px;
     }
     
     .hero h1 {
@@ -491,24 +575,39 @@ footer a:hover {
     }
     
     .resultado-card {
-        padding: 32px 24px;
-        border-radius: 12px;
+        padding: 0;
+        border-radius: 16px;
+    }
+    
+    #resultado-conteudo {
+        padding: 24px;
     }
     
     .perfil-header {
-        padding: 20px;
+        padding: 32px 24px;
     }
     
     .perfil-header h2 {
-        font-size: 22px;
+        font-size: 26px;
     }
     
     .perfil-prioridade {
         font-size: 14px;
+        padding: 6px 16px;
     }
     
     .saudacao {
-        font-size: 17px;
+        font-size: 18px;
+    }
+    
+    .numeros-perfil,
+    .diagnostico,
+    .financeiro,
+    .explicacao,
+    .solucao,
+    .proximo-passo {
+        padding: 24px;
+        margin-bottom: 24px;
     }
     
     .numeros-perfil h3,
@@ -517,7 +616,7 @@ footer a:hover {
     .explicacao h3,
     .solucao h3,
     .proximo-passo h3 {
-        font-size: 19px;
+        font-size: 20px;
     }
     
     .resultado-card p {
@@ -533,20 +632,40 @@ footer a:hover {
         margin-left: 20px;
     }
     
-    .destaque,
+    .numeros-perfil li,
+    .diagnostico li,
+    .solucao li,
+    .proximo-passo li {
+        font-size: 15px;
+    }
+    
+    .destaque {
+        padding: 24px 20px;
+    }
+    
+    .destaque p {
+        font-size: 20px !important;
+    }
+    
     .alerta {
-        font-size: 18px !important;
-        padding: 16px 20px;
+        padding: 24px 20px;
+    }
+    
+    .alerta p {
+        font-size: 19px !important;
     }
     
     .alerta-mensal {
-        font-size: 19px !important;
-        padding: 16px 20px;
+        padding: 28px 20px;
+    }
+    
+    .alerta-mensal p {
+        font-size: 22px !important;
     }
     
     .btn-cta {
-        font-size: 17px;
-        padding: 18px 32px;
+        font-size: 18px;
+        padding: 20px 32px;
         width: 100%;
         max-width: 100%;
     }
@@ -576,17 +695,23 @@ footer a:hover {
     }
     
     .perfil-header h2 {
-        font-size: 20px;
+        font-size: 22px;
     }
     
     .resultado-card p {
         font-size: 15px;
     }
     
-    .destaque,
-    .alerta,
-    .alerta-mensal {
-        font-size: 16px !important;
+    .destaque p {
+        font-size: 18px !important;
+    }
+    
+    .alerta p {
+        font-size: 17px !important;
+    }
+    
+    .alerta-mensal p {
+        font-size: 20px !important;
     }
 }
 
