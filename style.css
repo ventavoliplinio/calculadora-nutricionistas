@@ -1,4 +1,6 @@
-/* RESET */
+/* ============================================
+   RESET E BASE
+   ============================================ */
 * {
     margin: 0;
     padding: 0;
@@ -10,26 +12,72 @@ body {
     background: #0a0a0a;
     color: #ffffff;
     line-height: 1.6;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* ============================================
+   BACKGROUND IMAGE
+   ============================================ */
+.background-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('background.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    opacity: 0.15;
+    z-index: -1;
+}
+
+/* Overlay escuro adicional */
+.background-overlay::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(10,10,10,0.8) 0%, rgba(10,10,10,0.95) 100%);
 }
 
 .container {
     max-width: 800px;
     margin: 0 auto;
     padding: 0 20px;
+    position: relative;
+    z-index: 1;
 }
 
-/* HERO */
+/* ============================================
+   HERO
+   ============================================ */
 .hero {
     padding: 60px 0 40px;
     text-align: center;
 }
 
-.logo {
-    font-size: 24px;
-    font-weight: 700;
-    color: #E63946;
+/* Logo em imagem */
+.logo-container {
     margin-bottom: 40px;
-    letter-spacing: -0.5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo-image {
+    max-width: 280px;
+    height: auto;
+    filter: drop-shadow(0 4px 12px rgba(230, 57, 70, 0.3));
+    transition: transform 0.3s ease;
+}
+
+.logo-image:hover {
+    transform: scale(1.05);
 }
 
 .hero h1 {
@@ -51,17 +99,20 @@ body {
     margin: 0 auto;
 }
 
-/* FORMULÁRIO */
+/* ============================================
+   FORMULÁRIO
+   ============================================ */
 .formulario {
     padding: 40px 0 60px;
 }
 
 .form-card {
-    background: #1a1a1a;
+    background: rgba(26, 26, 26, 0.95);
     border: 1px solid #2a2a2a;
     border-radius: 16px;
     padding: 40px;
     box-shadow: 0 4px 24px rgba(230, 57, 70, 0.1);
+    backdrop-filter: blur(10px);
 }
 
 .form-group {
@@ -131,30 +182,150 @@ body {
     transform: translateY(0);
 }
 
-/* RESULTADO */
+/* ============================================
+   LOADING (BARRA DE PROGRESSO ANIMADA)
+   ============================================ */
+.loading {
+    padding: 60px 0;
+    animation: fadeIn 0.5s ease;
+}
+
+.loading-card {
+    background: rgba(26, 26, 26, 0.95);
+    border: 2px solid #E63946;
+    border-radius: 16px;
+    padding: 48px;
+    text-align: center;
+    box-shadow: 0 8px 32px rgba(230, 57, 70, 0.2);
+    backdrop-filter: blur(10px);
+}
+
+.loading-card h3 {
+    font-size: 24px;
+    font-weight: 900;
+    color: #E63946;
+    margin-bottom: 32px;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 12px;
+    background: #1a1a1a;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: 24px;
+    border: 1px solid #2a2a2a;
+}
+
+.progress-fill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #E63946 0%, #FF6B6B 100%);
+    border-radius: 20px;
+    transition: width 0.6s ease;
+    box-shadow: 0 0 20px rgba(230, 57, 70, 0.6);
+}
+
+.loading-card p {
+    font-size: 18px;
+    color: #b0b0b0;
+    font-weight: 500;
+}
+
+/* ============================================
+   RESULTADO
+   ============================================ */
 .resultado {
     padding: 40px 0 80px;
     animation: fadeIn 0.5s ease;
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+    from { 
+        opacity: 0; 
+        transform: translateY(20px); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    }
 }
 
 .resultado-card {
-    background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+    background: rgba(26, 26, 26, 0.95);
     border: 2px solid #E63946;
     border-radius: 16px;
     padding: 48px;
     box-shadow: 0 8px 32px rgba(230, 57, 70, 0.2);
+    backdrop-filter: blur(10px);
 }
 
-.resultado-card h2 {
-    font-size: 32px;
-    font-weight: 900;
+/* Header do perfil */
+.perfil-header {
+    background: rgba(230, 57, 70, 0.05);
+    padding: 24px;
+    border-radius: 12px;
     margin-bottom: 32px;
-    color: #E63946;
+}
+
+.perfil-header h2 {
+    font-size: 28px;
+    font-weight: 900;
+    margin-bottom: 8px;
+}
+
+.perfil-prioridade {
+    font-size: 16px;
+    color: #b0b0b0;
+    margin: 0;
+}
+
+/* Saudação */
+.saudacao {
+    font-size: 20px;
+    line-height: 1.6;
+    margin-bottom: 32px;
+    color: #d0d0d0;
+}
+
+/* Seções */
+.numeros-perfil,
+.diagnostico,
+.financeiro,
+.explicacao,
+.solucao,
+.proximo-passo {
+    margin-bottom: 32px;
+}
+
+.numeros-perfil h3,
+.diagnostico h3,
+.financeiro h3,
+.explicacao h3,
+.solucao h3,
+.proximo-passo h3 {
+    font-size: 22px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 16px;
+}
+
+.numeros-perfil ul,
+.diagnostico ul,
+.diagnostico ol,
+.solucao ul,
+.solucao ol,
+.proximo-passo ul {
+    margin-left: 24px;
+    color: #d0d0d0;
+}
+
+.numeros-perfil li,
+.diagnostico li,
+.solucao li,
+.proximo-passo li {
+    margin-bottom: 8px;
+    line-height: 1.6;
 }
 
 .resultado-card p {
@@ -169,13 +340,14 @@ body {
     font-weight: 700;
 }
 
+/* Destaques financeiros */
 .destaque {
     background: rgba(230, 57, 70, 0.1);
     border-left: 4px solid #E63946;
     padding: 20px 24px;
     margin: 24px 0;
     border-radius: 8px;
-    font-size: 24px !important;
+    font-size: 22px !important;
     font-weight: 700;
 }
 
@@ -189,6 +361,18 @@ body {
     font-weight: 700;
 }
 
+.alerta-mensal {
+    background: rgba(255, 107, 107, 0.15);
+    border-left: 4px solid #FF6B6B;
+    padding: 20px 24px;
+    margin: 24px 0;
+    border-radius: 8px;
+    font-size: 24px !important;
+    font-weight: 700;
+    color: #FF6B6B;
+}
+
+/* CTA Button */
 .btn-cta {
     display: inline-block;
     padding: 20px 48px;
@@ -202,6 +386,9 @@ body {
     transition: all 0.3s ease;
     text-transform: uppercase;
     letter-spacing: 0.5px;
+    text-align: center;
+    width: 100%;
+    max-width: 500px;
 }
 
 .btn-cta:hover {
@@ -210,7 +397,9 @@ body {
     box-shadow: 0 8px 24px rgba(230, 57, 70, 0.4);
 }
 
-/* RODAPÉ */
+/* ============================================
+   RODAPÉ
+   ============================================ */
 footer {
     padding: 40px 0;
     text-align: center;
@@ -227,30 +416,193 @@ footer a:hover {
     text-decoration: underline;
 }
 
-/* RESPONSIVO */
+/* ============================================
+   RESPONSIVO MOBILE
+   ============================================ */
 @media (max-width: 768px) {
+    /* Hero */
+    .hero {
+        padding: 40px 0 30px;
+    }
+    
+    .logo-image {
+        max-width: 200px;
+    }
+    
     .hero h1 {
-        font-size: 36px;
+        font-size: 32px;
     }
     
     .subtitulo {
-        font-size: 18px;
+        font-size: 16px;
+        padding: 0 10px;
+    }
+    
+    /* Formulário */
+    .formulario {
+        padding: 30px 0 40px;
     }
     
     .form-card {
         padding: 24px;
+        border-radius: 12px;
+    }
+    
+    .form-group label {
+        font-size: 15px;
+    }
+    
+    .form-group input,
+    .form-group select {
+        font-size: 16px;
+        padding: 12px 14px;
+    }
+    
+    .btn-calcular {
+        font-size: 16px;
+        padding: 16px 24px;
+    }
+    
+    /* Loading */
+    .loading {
+        padding: 40px 0;
+    }
+    
+    .loading-card {
+        padding: 32px 24px;
+    }
+    
+    .loading-card h3 {
+        font-size: 20px;
+        margin-bottom: 24px;
+    }
+    
+    .progress-bar {
+        height: 10px;
+    }
+    
+    .loading-card p {
+        font-size: 16px;
+    }
+    
+    /* Resultado */
+    .resultado {
+        padding: 30px 0 60px;
     }
     
     .resultado-card {
         padding: 32px 24px;
+        border-radius: 12px;
     }
     
-    .resultado-card h2 {
-        font-size: 24px;
+    .perfil-header {
+        padding: 20px;
+    }
+    
+    .perfil-header h2 {
+        font-size: 22px;
+    }
+    
+    .perfil-prioridade {
+        font-size: 14px;
+    }
+    
+    .saudacao {
+        font-size: 17px;
+    }
+    
+    .numeros-perfil h3,
+    .diagnostico h3,
+    .financeiro h3,
+    .explicacao h3,
+    .solucao h3,
+    .proximo-passo h3 {
+        font-size: 19px;
+    }
+    
+    .resultado-card p {
+        font-size: 16px;
+    }
+    
+    .numeros-perfil ul,
+    .diagnostico ul,
+    .diagnostico ol,
+    .solucao ul,
+    .solucao ol,
+    .proximo-passo ul {
+        margin-left: 20px;
     }
     
     .destaque,
     .alerta {
         font-size: 18px !important;
+        padding: 16px 20px;
+    }
+    
+    .alerta-mensal {
+        font-size: 19px !important;
+        padding: 16px 20px;
+    }
+    
+    .btn-cta {
+        font-size: 17px;
+        padding: 18px 32px;
+        width: 100%;
+        max-width: 100%;
+    }
+    
+    /* Container mobile */
+    .container {
+        padding: 0 16px;
+    }
+}
+
+/* Mobile extra pequeno (iPhone SE, etc) */
+@media (max-width: 375px) {
+    .hero h1 {
+        font-size: 28px;
+    }
+    
+    .subtitulo {
+        font-size: 15px;
+    }
+    
+    .form-card {
+        padding: 20px;
+    }
+    
+    .loading-card h3 {
+        font-size: 18px;
+    }
+    
+    .perfil-header h2 {
+        font-size: 20px;
+    }
+    
+    .resultado-card p {
+        font-size: 15px;
+    }
+    
+    .destaque,
+    .alerta,
+    .alerta-mensal {
+        font-size: 16px !important;
+    }
+}
+
+/* Landscape mobile */
+@media (max-width: 768px) and (orientation: landscape) {
+    .hero {
+        padding: 30px 0 20px;
+    }
+    
+    .logo-image {
+        max-width: 180px;
+    }
+    
+    .formulario,
+    .loading,
+    .resultado {
+        padding: 30px 0;
     }
 }
