@@ -63,8 +63,11 @@
                 </div>
                 
                 <div class="form-group">
-                    <label for="instagram">Seu Instagram (sem @):</label>
-                    <input type="text" id="instagram" placeholder="Ex: drafernandasilva" required>
+                    <label for="instagram">Seu Instagram:</label>
+                    <div class="input-with-prefix">
+                        <span class="input-prefix">instagram.com/</span>
+                        <input type="text" id="instagram" placeholder="seuusuario" required>
+                    </div>
                 </div>
                 
                 <div class="form-group">
@@ -74,7 +77,8 @@
                 
                 <div class="form-group">
                     <label for="whatsapp">Seu WhatsApp (com DDD):</label>
-                    <input type="tel" id="whatsapp" placeholder="Ex: (11) 99999-9999" required>
+                    <input type="tel" id="whatsapp" placeholder="Ex: (11) 99999-9999" maxlength="15" required>
+                    <small class="input-hint">Digite apenas números. A formatação é automática.</small>
                 </div>
                 
                 <div class="form-group">
