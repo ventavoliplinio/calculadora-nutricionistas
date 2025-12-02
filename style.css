@@ -30,20 +30,11 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    opacity: 0.15;
+    opacity: 0.25;
     z-index: -1;
 }
 
-/* Overlay escuro adicional */
-.background-overlay::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(180deg, rgba(10,10,10,0.8) 0%, rgba(10,10,10,0.95) 100%);
-}
+/* Removido overlay escuro - deixa background aparecer mais */
 
 .container {
     max-width: 800px;
@@ -93,7 +84,7 @@ body {
 
 .subtitulo {
     font-size: 20px;
-    color: #b0b0b0;
+    color: #C0C0C0;
     line-height: 1.6;
     max-width: 600px;
     margin: 0 auto;
@@ -154,6 +145,41 @@ body {
     color: #ffffff;
     transition: all 0.3s ease;
     font-family: 'Inter', sans-serif;
+}
+
+/* Input com prefixo (Instagram) */
+.input-with-prefix {
+    display: flex;
+    align-items: center;
+    background: #0a0a0a;
+    border: 2px solid #2a2a2a;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.input-with-prefix:focus-within {
+    border-color: #E63946;
+    box-shadow: 0 0 0 3px rgba(230, 57, 70, 0.1);
+}
+
+.input-prefix {
+    padding: 14px 0 14px 16px;
+    font-size: 16px;
+    color: #808080;
+    white-space: nowrap;
+    user-select: none;
+}
+
+.input-with-prefix input {
+    border: none;
+    background: transparent;
+    padding-left: 4px;
+}
+
+.input-with-prefix input:focus {
+    outline: none;
+    border: none;
+    box-shadow: none;
 }
 
 .form-group input:focus,
@@ -401,11 +427,11 @@ body {
     font-size: 18px;
     line-height: 1.8;
     margin-bottom: 16px;
-    color: #d0d0d0;
+    color: #C0C0C0;
 }
 
 .resultado-card strong {
-    color: #ffffff;
+    color: #E8E8E8;
     font-weight: 700;
 }
 
@@ -481,14 +507,14 @@ body {
     z-index: 1;
 }
 
-/* CTA Button - MUITO MAIS CHAMATIVO */
+/* CTA Button - TODOS VERDES */
 .btn-cta {
     display: block;
     padding: 24px 48px;
     font-size: 22px;
     font-weight: 900;
-    background: linear-gradient(135deg, #E63946 0%, #d62828 100%);
-    color: #ffffff;
+    background: linear-gradient(135deg, #06FFA5 0%, #00D68F 100%);
+    color: #0a0a0a;
     text-decoration: none;
     border-radius: 12px;
     margin: 48px auto 0;
@@ -498,53 +524,18 @@ body {
     text-align: center;
     width: 100%;
     max-width: 600px;
-    box-shadow: 0 8px 24px rgba(230, 57, 70, 0.4);
+    box-shadow: 0 8px 24px rgba(6, 255, 165, 0.4);
     border: 2px solid rgba(255, 255, 255, 0.1);
 }
 
 .btn-cta:hover {
-    background: linear-gradient(135deg, #d62828 0%, #c1121f 100%);
+    background: linear-gradient(135deg, #00D68F 0%, #00B87A 100%);
     transform: translateY(-4px);
-    box-shadow: 0 12px 32px rgba(230, 57, 70, 0.6);
+    box-shadow: 0 12px 32px rgba(6, 255, 165, 0.6);
 }
 
 .btn-cta:active {
     transform: translateY(-2px);
-}
-
-/* Botão VERDE para perfis específicos */
-.btn-cta[style*="#06FFA5"],
-.btn-cta[style*="#4CAF50"] {
-    background: linear-gradient(135deg, #06FFA5 0%, #00D68F 100%) !important;
-    box-shadow: 0 8px 24px rgba(6, 255, 165, 0.4) !important;
-}
-
-.btn-cta[style*="#06FFA5"]:hover,
-.btn-cta[style*="#4CAF50"]:hover {
-    background: linear-gradient(135deg, #00D68F 0%, #00B87A 100%) !important;
-    box-shadow: 0 12px 32px rgba(6, 255, 165, 0.6) !important;
-}
-
-/* Botão ROXO para perfil específico */
-.btn-cta[style*="#9D4EDD"] {
-    background: linear-gradient(135deg, #9D4EDD 0%, #8338EC 100%) !important;
-    box-shadow: 0 8px 24px rgba(157, 78, 221, 0.4) !important;
-}
-
-.btn-cta[style*="#9D4EDD"]:hover {
-    background: linear-gradient(135deg, #8338EC 0%, #7209B7 100%) !important;
-    box-shadow: 0 12px 32px rgba(157, 78, 221, 0.6) !important;
-}
-
-/* Botão LARANJA para perfil específico */
-.btn-cta[style*="#FF6B6B"] {
-    background: linear-gradient(135deg, #FF6B6B 0%, #FF5252 100%) !important;
-    box-shadow: 0 8px 24px rgba(255, 107, 107, 0.4) !important;
-}
-
-.btn-cta[style*="#FF6B6B"]:hover {
-    background: linear-gradient(135deg, #FF5252 0%, #FF3838 100%) !important;
-    box-shadow: 0 12px 32px rgba(255, 107, 107, 0.6) !important;
 }
 
 /* ============================================
