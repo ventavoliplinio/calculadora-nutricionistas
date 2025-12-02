@@ -12,7 +12,10 @@ function calcular() {
     const valorConsulta = parseInt(document.getElementById('valor').value);
     const listaEspera = parseInt(document.getElementById('listaEspera').value);
     const jaVendeu = document.getElementById('jaVendeu').value === 'true';
-    
+
+// ADICIONE:
+const perfil = determinarPerfil(seguidores, consultas, valorConsulta, listaEspera, jaVendeu);
+salvarNoSheets(nome, instagram, email, whatsapp, seguidores, consultas, valorConsulta, listaEspera, jaVendeu, perfil.perfil);    
     // Validação
     if (!nome || !instagram || !email || !whatsapp || !seguidores || !consultas || !valorConsulta || isNaN(listaEspera) || document.getElementById('jaVendeu').value === '') {
         alert('Por favor, preencha todos os campos!');
@@ -75,6 +78,31 @@ function calcular() {
             listaEspera,
             jaVendeu
         );
+
+        // Salvar dados no Google Sheets
+function salvarNoSheets(nome, instagram, email, whatsapp, seguidores, consultas, valorConsulta, listaEspera, jaVendeu, perfil) {
+    const url = 'SUA_URL_DO_APPS_SCRIPT_AQUI'; // Cole a URL que copiou
+    
+    fetch(url, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            nome: nome,
+            instagram: instagram,
+            email: email,
+            whatsapp: whatsapp,
+            seguidores: seguidores,
+            consultas: consultas,
+            valorConsulta: valorConsulta,
+            listaEspera: listaEspera,
+            jaVendeu: jaVendeu,
+            perfil: perfil
+        })
+    });
+}
         
         // Mostra resultado
         document.getElementById('resultado-conteudo').innerHTML = resultadoHTML;
