@@ -48,7 +48,7 @@ function calcular() {
             Enquanto você não tem produto digital, <strong>suas seguidoras estão comprando da concorrente</strong>.
         </p>
         
-        <a href="https://wa.me/5511999999999?text=Oi%20Plínio,%20acabei%20de%20fazer%20a%20calculadora%20e%20quero%20parar%20de%20perder%20R$%20${perdendoMensalF}%20por%20mês!" class="btn-cta" target="_blank">
+        <a href="https://wa.me/5535997140204?text=Oi%20Plínio,%20acabei%20de%20fazer%20a%20calculadora%20e%20quero%20parar%20de%20perder%20R$%20${perdendoMensalF}%20por%20mês!" class="btn-cta" target="_blank">
             QUERO PARAR ISSO AGORA
         </a>
     `;
