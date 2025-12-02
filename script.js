@@ -78,31 +78,6 @@ salvarNoSheets(nome, instagram, email, whatsapp, seguidores, consultas, valorCon
             listaEspera,
             jaVendeu
         );
-
-        // Salvar dados no Google Sheets
-function salvarNoSheets(nome, instagram, email, whatsapp, seguidores, consultas, valorConsulta, listaEspera, jaVendeu, perfil) {
-    const url = 'SUA_URL_DO_APPS_SCRIPT_AQUI'; // Cole a URL que copiou
-    
-    fetch(url, {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-            nome: nome,
-            instagram: instagram,
-            email: email,
-            whatsapp: whatsapp,
-            seguidores: seguidores,
-            consultas: consultas,
-            valorConsulta: valorConsulta,
-            listaEspera: listaEspera,
-            jaVendeu: jaVendeu,
-            perfil: perfil
-        })
-    });
-}
         
         // Mostra resultado
         document.getElementById('resultado-conteudo').innerHTML = resultadoHTML;
