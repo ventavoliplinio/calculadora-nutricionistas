@@ -12,33 +12,36 @@
     <!-- CSS -->
     <link rel="stylesheet" href="style.css">
     
-    <!-- Facebook Pixel (vou te dar depois) -->
+    <!-- Facebook Pixel Code -->
     <script>
-<!-- Facebook Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1288859059916283'); // ← TROCA AQUI
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=SEU_PIXEL_ID_AQUI&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Facebook Pixel Code -->
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1288859059916283');
+    fbq('track', 'PageView');
     </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1288859059916283&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Facebook Pixel Code -->
 </head>
 <body>
+    
+    <!-- Background Image -->
+    <div class="background-overlay"></div>
     
     <!-- SEÇÃO 1: HERO -->
     <section class="hero">
         <div class="container">
-            <div class="logo">Plínio Ventavoli</div>
+            <!-- Logo em imagem .webp -->
+            <div class="logo-container">
+                <img src="logo.webp" alt="Plínio Ventavoli" class="logo-image">
+            </div>
             
             <h1>Descubra Quanto Você Está Perdendo</h1>
             
@@ -99,6 +102,26 @@ src="https://www.facebook.com/tr?id=SEU_PIXEL_ID_AQUI&ev=PageView&noscript=1"
                     </select>
                 </div>
                 
+                <div class="form-group">
+                    <label for="listaEspera">Você tem lista de espera?</label>
+                    <select id="listaEspera" required>
+                        <option value="">Selecione</option>
+                        <option value="0">Não tenho lista de espera</option>
+                        <option value="1">1-2 semanas</option>
+                        <option value="3">2-4 semanas</option>
+                        <option value="5">Mais de 4 semanas</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="jaVendeu">Você já tentou vender produto digital?</label>
+                    <select id="jaVendeu" required>
+                        <option value="">Selecione</option>
+                        <option value="false">Nunca tentei</option>
+                        <option value="true">Sim, mas vendi pouco (menos de 50 unidades)</option>
+                    </select>
+                </div>
+                
                 <button onclick="calcular()" class="btn-calcular">
                     CALCULAR AGORA
                 </button>
@@ -107,7 +130,20 @@ src="https://www.facebook.com/tr?id=SEU_PIXEL_ID_AQUI&ev=PageView&noscript=1"
         </div>
     </section>
     
-    <!-- SEÇÃO 3: RESULTADO (oculta inicialmente) -->
+    <!-- SEÇÃO 3: LOADING (oculta inicialmente) -->
+    <section class="loading" id="loading" style="display: none;">
+        <div class="container">
+            <div class="loading-card">
+                <h3>⚡ ANALISANDO SEUS DADOS...</h3>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+                <p id="loadingText">Calculando quanto você está perdendo...</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- SEÇÃO 4: RESULTADO (oculta inicialmente) -->
     <section class="resultado" id="resultado" style="display: none;">
         <div class="container">
             <div class="resultado-card">
