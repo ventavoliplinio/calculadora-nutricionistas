@@ -5,6 +5,8 @@ function calcular() {
     // Pega valores dos campos
     const nome = document.getElementById('nome').value;
     const instagram = document.getElementById('instagram').value;
+    const email = document.getElementById('email').value;
+    const whatsapp = document.getElementById('whatsapp').value;
     const seguidores = parseInt(document.getElementById('seguidores').value);
     const consultas = parseInt(document.getElementById('consultas').value);
     const valorConsulta = parseInt(document.getElementById('valor').value);
@@ -12,7 +14,7 @@ function calcular() {
     const jaVendeu = document.getElementById('jaVendeu').value === 'true';
     
     // Validação
-    if (!nome || !instagram || !seguidores || !consultas || !valorConsulta || isNaN(listaEspera) || document.getElementById('jaVendeu').value === '') {
+    if (!nome || !instagram || !email || !whatsapp || !seguidores || !consultas || !valorConsulta || isNaN(listaEspera) || document.getElementById('jaVendeu').value === '') {
         alert('Por favor, preencha todos os campos!');
         return;
     }
@@ -92,7 +94,9 @@ function calcular() {
                 content_name: 'Calculadora Preenchida',
                 value: perdendoAnual,
                 currency: 'BRL',
-                perfil: perfil.perfil
+                perfil: perfil.perfil,
+                email: email,
+                phone: whatsapp
             });
         }
     });
