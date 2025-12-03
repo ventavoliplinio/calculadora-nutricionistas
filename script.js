@@ -2,7 +2,7 @@
 // SALVAR NO GOOGLE SHEETS
 // ============================================
 function salvarNoSheets(nome, instagram, email, whatsapp, seguidores, consultas, valorConsulta, listaEspera, jaVendeu, perfil) {
-    const url = 'https://docs.google.com/spreadsheets/d/1qCzk5W3YG0utRU1HO6RNITB25jk-ZjItqKAmXkggL2I/edit?usp=sharing'; // ← SUBSTITUA PELA URL REAL
+    const url = 'https://script.google.com/macros/s/AKfycbzb-gKvFV4vMCkTHSnHrMMoV8KaC2tn-d-w4BlS1JXo1u__YXGtLCP_4VXyD0bNt8CjAA/exec'; // ← SUBSTITUA PELA URL REAL
     
     // Se não configurou a URL ainda, não faz nada
     if (url === 'COLE_SUA_URL_DO_APPS_SCRIPT_AQUI') {
